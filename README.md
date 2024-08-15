@@ -8,6 +8,7 @@ implementation of a stack containing the elements representing the set of plates
 represent the data as such:
 
 <img width="371" alt="image" src="https://github.com/user-attachments/assets/d17a6246-97e7-4e71-9ff3-5f12b6cf576c">
+
 Figure - conceptual linked list representation of the stack
 
 An array was originally considered to represent both the input stack and the sorted stack. 
