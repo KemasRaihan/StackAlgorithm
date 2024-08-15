@@ -1,10 +1,10 @@
 # Stack Algorithm
 
-The algorithm uses stack operations to sort an array since only one plate at the top can be moved.
+The algorithm uses stack operations to sort an array since only one element at the top can be moved.
 It reorganises the elements in the stack data structure by using recursion. The algorithm uses two recursive methods  to do so. 
 
-Suppose the set of plates are represented with the types 1,1,2,2,3,4. Let D be a linked list
-implementation of a stack containing the elements representing the set of plates. Here we can
+Suppose the set of elements are represented with the values 1,1,2,2,3,4. Let D be a linked list
+implementation of a stack containing the elements. Here we can
 represent the data as such:
 
 <img width="371" alt="image" src="https://github.com/user-attachments/assets/d17a6246-97e7-4e71-9ff3-5f12b6cf576c">
