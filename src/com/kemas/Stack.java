@@ -3,8 +3,8 @@ package com.kemas;
 import java.util.ArrayList;
 
 /**Linked list implementation of a stack**/
-public class Stack<T> {
-    final int max = 1000;
+public class Stack {
+    final int max = 100000;
 
     /**AV: points to the next available node in the pool
      * max: maximum size of storage pool
@@ -15,8 +15,12 @@ public class Stack<T> {
     /**DATA: holds the items
      * LINK: contains pointers to items in DATA
      * POOL_LINK: represents the storage pool**/
-    ArrayList<T> DATA;
-    int[] LINK, POOL_LINK;
+    int[] DATA, LINK, POOL_LINK;
+
+    public Stack()
+    {
+        create();
+    }
 
     //initialise the storage pool, through the LINK array, to contain nodes with addresses 1, 2, 3, ...., n and
     //set AV to point to the first node in this list.
@@ -55,17 +59,17 @@ public class Stack<T> {
     void create() {
        top = 0;
        initialiseStoragePool();
-       DATA = new ArrayList<>(); // create a DATA array of size max
+       DATA = new int[max]; // create a DATA array of size max
         LINK = new int[max]; // create a LINK array of size max
     }
 
     // push an item into the top of the stack
-    void push(T item) {
+    void push(int item) {
         // get random index
         int pointer = GETNODE();
 
         // add item to data
-        DATA.add(item);
+        DATA[top]=item;
 
         // item being added now points to previous top
         LINK[pointer] = top;
@@ -75,22 +79,23 @@ public class Stack<T> {
     }
 
     // pop an item from the stack
-    T pop() {
-        T item;
+    int pop() {
+        int item = 0;
         if(isEmpty()) {
             System.out.println("Stack is empty");
-            item = null;
         }
         else {
-            item = DATA.get(top-1);
+            item = DATA[top-1];
             RETNODE(top);
             top = LINK[top];
         }
         return item;
     }
 
-    T peek(){
-        return DATA.get(top-1);
+    int peek(){
+        if(!isEmpty())
+            return DATA[top-1];
+        return -1;
     }
 
 
@@ -101,7 +106,7 @@ public class Stack<T> {
     // display all elements in the stack
     void display(){
         for(int i = 0; i < top; i++) {
-            System.out.print(DATA.get(i) + ",");
+            System.out.print(DATA[i] + ",");
         }
         System.out.println();
     }

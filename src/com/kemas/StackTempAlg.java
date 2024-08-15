@@ -1,20 +1,19 @@
 package com.kemas;
 
-public class SortStack {
+public class StackTempAlg {
 
     // given a stack of integers, sort the stack in ascending order
-    public static Stack sortPlates(Stack inputStack){
-        int temp;
+    public static Stack reorganise(Stack inputStack){
+       int temp;
 
         // initialise tempStack
-        Stack<Integer> tempStack = new Stack();
-        tempStack.create();
+        Stack tempStack = new Stack();
 
         // complete sorting once inputStack contains no elements
         while(!inputStack.isEmpty()){
 
             // assign element on top of inputStack to temp
-            temp = (int) inputStack.pop();
+            temp = inputStack.pop();
 
             // push elements from tempStack to inputStack while
             // tempStack is not empty
@@ -31,8 +30,25 @@ public class SortStack {
 //            inputStack.display();
 //            System.out.print("Temporary Stack: ");
 //            tempStack.display();
+
+
+
+
+
+        }
+       transfer(tempStack, inputStack);
+
+        return inputStack;
+
+
+    }
+
+    public static void transfer(Stack original, Stack result)
+    {
+        while(!original.isEmpty())
+        {
+            result.push(original.pop());
         }
 
-        return tempStack;
     }
 }
